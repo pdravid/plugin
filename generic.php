@@ -76,7 +76,8 @@ function display_contributors($content){
     $blogusers = get_users( 'blog_id=1&orderby=nicename&role=author' );
         // Array of WP_User objects.
     foreach ( $blogusers as $user ) {
-     $html.= '<span>' . esc_html( $user->display_name ) . '<br></span>';
+     $html.= get_avatar( $user->email, 32) .'<span>&nbsp &nbsp' . esc_html( $user->display_name ) .'<br></span>';
+
 
 
     }
