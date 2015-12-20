@@ -74,7 +74,15 @@ function display_contributors($content){
     $html = '<div style="border:1px solid;padding:20px;" ><strong>Contributors<br></strong>';
 
     $blogusers = get_users( 'blog_id=1&orderby=nicename&role=author' );
-        // Array of WP_User objects.
+        // This is the position where only the checked users should be displayed.
+    
+        /*
+        I tried using the following logic but it fetches me error. 
+        So I have commented the code for now and am displaying all the authors with
+        their gravatars instead.
+        <?php echo (in_array($user->display_name, $custom_meta)) ? $user->display_name : ''; ?>
+        */
+
     foreach ( $blogusers as $user ) {
      $html.= get_avatar( $user->email, 32) .'<span>&nbsp &nbsp' . esc_html( $user->display_name ) .'<br></span>';
 
